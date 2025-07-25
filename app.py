@@ -3,7 +3,6 @@ import streamlit as st
 import os
 from interview.chains import InterviewManager
 from interview.reports import generate_pdf_report
-from gesture.detector import GestureController
 import threading
 import time
 from email_validator import validate_email, EmailNotValidError
@@ -26,7 +25,6 @@ def initialize_session_state():
     defaults = {
         'interview_state': 'setup',
         'interview': None,
-        'gesture_controller': None,
         'candidate_name': "",
         'candidate_email': "",
         'current_question_index': 0,
@@ -71,26 +69,6 @@ def validate_email_format(email):
     except EmailNotValidError:
         return False
 
-def show_gesture_instructions():
-    """Display enhanced gesture control instructions"""
-    st.subheader("🤝 Gesture Control Guide")
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.markdown("""
-        **Navigation Gestures:**
-        - 🤜 **Right Fist**: Next question
-        """)
-    
-    with col2:
-        st.markdown("""
-        **Control Gestures:**
-        - 👍 **Thumbs Up**: Submit current answer
-        - 🛑 **Stop Hand**: Emergency stop interview
-        """)
-    
-    st.info("💡 **Tips:** Hold gestures for 2-3 seconds. Ensure good lighting and clear hand visibility.")
 
 def show_timer():
     """Display countdown timer"""
@@ -220,26 +198,6 @@ def main():
         
         st.markdown("---")
         
-        # Gesture control
-        st.subheader("🎥 Gesture Control")
-        enable_gestures = st.checkbox("Enable Gesture Control", value=False)
-        
-        if enable_gestures:
-            show_gesture_instructions()
-            
-            if st.button("Start Gesture Detection"):
-                if st.session_state.gesture_controller is None:
-                    try:
-                        st.session_state.gesture_controller = GestureController()
-                        threading.Thread(
-                            target=st.session_state.gesture_controller.start_detection,
-                            daemon=True
-                        ).start()
-                        st.success("✅ Gesture detection started!")
-                    except Exception as e:
-                        st.error(f"❌ Error starting gesture detection: {e}")
-        
-        st.markdown("---")
         
         # Session controls
         st.subheader("📋 Session Controls")
@@ -361,7 +319,6 @@ def main():
         
         ### 🔧 Features Available
         - **Instant Q&A**: Ask for clarification without penalty
-        - **Gesture Control**: Optional hands-free navigation
         - **Auto-save**: Your progress is automatically saved
         
         ### 📊 Evaluation Criteria
