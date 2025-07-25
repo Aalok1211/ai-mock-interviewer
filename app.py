@@ -10,8 +10,12 @@ from pathlib import Path
 import json
 from openai import OpenAI        
 from dotenv import load_dotenv
-load_dotenv()
 
+try:
+    api_key = st.secrets["GROQ_API_KEY"]
+except Exception:
+    load_dotenv()
+    api_key = os.getenv("GROQ_API_KEY")
 
 # Configure page
 st.set_page_config(
