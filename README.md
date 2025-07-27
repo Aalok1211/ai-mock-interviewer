@@ -2,6 +2,9 @@
 
 A production-grade mock-interview platform that blends generative AI with a curated question bank to prepare candidates for-oriented roles.
 
+🎯 Experience it in Action
+🔗[Live Demo](https://ai-mock-interviewer-1.streamlit.app/)
+
 <img src="images/logo.png" alt="logo" width="520"/>
 
 ## 🚀 Key Features
