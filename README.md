@@ -55,9 +55,6 @@ ai-excel-mock-interviewer/
 │  └─ alert.json          # Alert logs
 ├─ admin/
 │  └─ dashboard.py        # Sidebar admin logic
-├─ eval/
-│  ├─ rubric.xlsx         # Rubric prompts
-│  └─ scroing.py          # Scrore analyzer
 ├─ requirements.txt       # Module dependencies
 └─  reports/              # Log Reports
 ```
