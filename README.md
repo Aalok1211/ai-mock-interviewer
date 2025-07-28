@@ -56,7 +56,7 @@ ai-excel-mock-interviewer/
 ├─ admin/
 │  └─ dashboard.py        # Sidebar admin logic
 ├─ requirements.txt       # Module dependencies
-└─  reports/              # Log Reports
+└─  reports/              # Log Reports(Local & GitHub: persistent; Streamlit Cloud: ephemeral)
 ```
 
 
