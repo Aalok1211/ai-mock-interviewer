@@ -19,9 +19,6 @@ A production-grade mock-interview platform that blends generative AI with a cura
 
 Interview practice is expensive, repetitive, and often generic. By combining retrieval-augmented generation with rubric-based scoring, this project lowers coaching costs, surfaces domain-specific blind spots, and scales to thousands of simultaneous candidates without sacrificing quality.
 
-## 🏗️ Architecture
-
-<img src="images/architecture.png" alt="logo" width="520"/>
 
 
 ## ⚙️ Tech Stack
